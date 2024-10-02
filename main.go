@@ -206,7 +206,7 @@ func main() {
 	}
 
 	// register routes
-	app := router.New(tmplDir, extraData, util.SessionSecret)
+	app := router.New(tmplDir, extraData, util.SessionSecret, db)
 
 	app.GET(util.BasePath, handler.WireGuardClients(db), handler.ValidSession, handler.RefreshSession)
 
